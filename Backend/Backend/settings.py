@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -134,7 +137,16 @@ SOCIALACCOUNT_PROVIDERS = \
       'EXCHANGE_TOKEN': True,
       'LOCALE_FUNC': lambda request: 'kr_KR',
       'VERIFIED_EMAIL': False,
-      'VERSION': 'v2.4'}}
+      'VERSION': 'v2.4'},
+     'google': {
+         'SCOPE': [
+             'profile',
+             'email',
+         ],
+         'AUTH_PARAMS': {
+             'access_type': 'online',
+         }
+     }}
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -153,3 +165,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# All-Auth settings
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/email/'
+ACCOUNT_ADAPTER = 'Backend.adapter.RestrictedEmailAdapter'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
