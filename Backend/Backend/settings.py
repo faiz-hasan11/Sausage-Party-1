@@ -175,3 +175,6 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/accounts/email/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+AUTH_USER_MODEL = "Users.User"
+ACCOUNT_FORMS = {'signup': 'Users.forms.CustomSignupForm'}
+ACCOUNT_ADAPTER = "Users.adapters.AccountAdapter"
