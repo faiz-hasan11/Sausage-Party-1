@@ -38,14 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
+    # 'rest_framework',
+    # 'rest_framework.authtoken',
+    # 'rest_auth',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+    'Users',
 ]
 
 SITE_ID = 1
@@ -173,5 +174,7 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/accounts/email/'
-ACCOUNT_ADAPTER = 'Backend.adapter.RestrictedEmailAdapter'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+AUTH_USER_MODEL = "Users.User"
+ACCOUNT_FORMS = {'signup': 'Users.forms.CustomSignupForm'}
+ACCOUNT_ADAPTER = "Users.adapters.AccountAdapter"
