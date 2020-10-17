@@ -10,6 +10,7 @@ class AccountAdapter(DefaultAccountAdapter):
         user.last_name = data['last_name']
         user.nationality = data['nationality']
         user.gender = data['gender']
+        user.institute = data['institute']
         if 'password1' in data:
             user.set_password(data['password1'])
         user.save()

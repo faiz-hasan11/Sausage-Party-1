@@ -10,6 +10,7 @@ class User(AbstractUser):
         ('O', 'OTHER'),
     )
     name = models.CharField(max_length=255)
+    institute = models.CharField(max_length=255)
     nationality = models.CharField(max_length=3)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 

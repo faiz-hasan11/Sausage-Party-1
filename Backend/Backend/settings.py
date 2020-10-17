@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     'Users',
+    'rest_framework',
+    'knox',
+
 ]
 
 SITE_ID = 1
@@ -148,6 +151,15 @@ SOCIALACCOUNT_PROVIDERS = \
              'access_type': 'online',
          }
      }}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
