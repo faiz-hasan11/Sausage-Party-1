@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'Users',
     'corsheaders',
+    'knox'
 ]
 
 SITE_ID = 1
@@ -183,4 +184,3 @@ ACCOUNT_FORMS = {'signup': 'Users.forms.CustomSignupForm'}
 ACCOUNT_ADAPTER = "Users.adapters.AccountAdapter"
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-APPEND_SLASH = False
