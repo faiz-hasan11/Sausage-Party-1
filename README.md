@@ -1,1 +1,1 @@
-Public Codebase of the Sausage-Party
+*Public Codebase of the Sausage-Party*
